@@ -2,6 +2,11 @@ class WordsController < ApplicationController
   # GET /words
   # GET /words.json
   def index
+    @words = Word.all
+    respond_to do |format|
+     format.html # index.html.erb
+     format.json { render json: @words }
+    end
   end
 
   def live_search
