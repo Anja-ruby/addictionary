@@ -1,0 +1,25 @@
+ <h1>Show word</h1>
+
+
+<%= form_for :word do |f| %>
+  
+  <div class="field">
+    <%= f.label :polskie %><br />
+    <%= f.text_field :polskie %>
+  </div>
+
+  <div class="field">
+    <%= f.label :angielskie %><br />
+    <%= f.text_field :angielskie %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<div id="results"> </div>
+<td><%= link_to 'New', @word %></td>|
+<td><%= link_to 'Back', words_path %></td>
+
+
+

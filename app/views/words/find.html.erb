@@ -1,0 +1,7 @@
+<% if @word %>
+  <h1>Tłumaczenie</h1>
+  <%= @word.polskie %>
+  <%= @word.angielskie %>	
+<% else %>
+  Word not found.
+<% end %>

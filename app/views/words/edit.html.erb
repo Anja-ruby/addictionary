@@ -1,0 +1,22 @@
+<h1>Editing word</h1>
+
+
+<%= form_for :word do |f| %>
+  
+  <div class="field">
+    <%= f.label :polskie %><br />
+    <%= f.text_field value="" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :angielskie %><br />
+    <%= f.text_field :angielskie %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<div id="results"> </div>
+<td><%= link_to 'New', new_word_path(word) %></td>|
+<td><%= link_to 'Back', words_path %></td>

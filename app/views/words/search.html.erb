@@ -1,0 +1,12 @@
+ <h1>Live search</h1>
+
+<% if @results.empty? %>
+ <h2>qery not find</h2>
+<% else %>
+  <% @results.each do |post| %>
+  <% link_to word.polskie, word %>
+ <% end %> 
+ <% end %>
+
+<%= link_to 'Edit', @word %> |
+<%= link_to 'Back', words_path %>
