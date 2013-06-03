@@ -1,7 +1,11 @@
 <% if @word %>
   <h1>Tłumaczenie</h1>
-  <%= @word.polskie %>
-  <%= @word.angielskie %>	
+ 
+    <h2>polskie: <%= @word.polskie %></h2> 
+    <h2>angielskie: <%= @word.angielskie %></h2>  
 <% else %>
-  Word not found.
+ <h2>Word not found</h2><br />
 <% end %>
+
+
+ <div><h2><%= link_to 'Back', words_path %></h2> </div>

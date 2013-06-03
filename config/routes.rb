@@ -3,7 +3,10 @@ Slapa::Application.routes.draw do
  
   get "search/index"
   get "search/live_search"
-  get "/find" => "words#find"
+  get "words/:id/show"
+  get "words/:id/edit"
+ # get "/find" => "words#find"
+get "/find" => "words#index"
 
   root :to =>'words#index'
 
