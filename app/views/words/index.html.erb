@@ -1,5 +1,10 @@
 <div id="word-list">
-  <% @words.each do |word| %>
-    <p>Słowo polskie: <%= word.polskie %>, angielskie: <%= word.angielskie %></p>
+  <h1>Word list</h1>
+  <% if @words.blank? %>
+    <p>No words found in dictionary.</p>
+  <% else %>
+    <% @words.each do |word| %>
+      <p>Słowo polskie: <%= word.polskie %>, angielskie: <%= word.angielskie %></p>
+    <% end %>
   <% end %>
 </div>

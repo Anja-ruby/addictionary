@@ -17,3 +17,9 @@
 #word-list {
   text-align: right;
 }
+
+form.search {
+  [type="submit"] {
+    margin-top: 20px;
+  }
+}
