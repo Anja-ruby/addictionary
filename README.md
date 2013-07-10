@@ -1,0 +1,3 @@
+### Addictionary
+
+Dictionary Rails application
