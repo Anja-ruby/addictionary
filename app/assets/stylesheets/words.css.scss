@@ -23,3 +23,14 @@ form.search {
     margin-top: 20px;
   }
 }
+
+span {
+  &.polskie, &.angielskie {
+    font-size: 20px;
+  }
+}
+
+.look_up {
+  font-size: 20px;
+  color:white
+}

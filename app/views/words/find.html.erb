@@ -6,7 +6,9 @@
 
 <h1 style=" float:left"><%= image_tag 'mic2.png' %></h1>
 
-<div style="position: absolute;  left:1050px; top: 0px; "><%= image_tag 'addictionary3.png' %></div>
+<div style="position: absolute;  left:1050px; top: 0px; ">
+  <%= link_to image_tag('addictionary3.png'), root_path %>
+</div>
 
 <form class="search" accept-charset="UTF-8" action="find" method="get" >
     <input id="polskie" name="word" type="text" class="whitetrans" placeholder="Type a word or phrase">
@@ -14,7 +16,7 @@
 
 </form>
 
-<h2 style="width=320px; font:Arial; margin-left:700px; font-size: 20px; color: white; border: grey;">
+
 
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
@@ -44,29 +46,12 @@ $(function() {
 });
 
 </script>
-  
+
+<h2 style="width=320px; font:Arial; margin-left:700px; font-size: 20px; color: white; border: grey;">
   <% if @word.nil?  %>
-           <td style="font-size: 30px font:EssenceSans"> </td>
-           <div class='look_up' style="font-size: 20px font-color:white">nie znaleziono </div>
-  <% else %>   
-
-          <% if @word %>
-              <div class='look_up' style="font-size: 20px font:EssenceSans font-color:white">tłumaczenie dla:  " <%= @word.polskie %>"</div>
-
-              <br></br>
-              <td><div class='look_up' style="font-size: 20px font: avenir"><%= @word.angielskie %></div></td> 
-          <% else %> 
-               <td style="font-size: 30px">not found</td>
-          <% end %>
+    <div class='look_up'>nie znaleziono </div>
+  <% else %>
+    <p class >tłumaczenie dla:  <span class="polskie"><%= @word.polskie %></span></p>
+    <p><span class="angielskie"><%= @word.angielskie %></span></p>
   <% end %>
-
- 
 </h2>
-
-
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
