@@ -1,27 +1,13 @@
 class WordsController < ApplicationController
   # GET /words
   # GET /words.json
-
-  
   def index
-   # @words = Word.all
-    @word = Word.where(:polskie => params[:word]).first
-    #@word = Word.where(:polskie => params[:word]).first
-    
+    @words = Word.all
+
     respond_to do |format|
      format.html # index.html.erb
      format.json { render json: @words }
     end
-  end
-
-  def live_search
-    @searchphrase = "<%" + params[:query] + "%>"
-    @results = Word.find( :all, :conditions => [ "Descrioption like ?" , @searchphrase ])
-     
-     respond_to do |format|
-     format.html # index.html.erb
-     format.json { render json: @words }
-   end
   end
 
   # GET /words/1
@@ -40,8 +26,7 @@ class WordsController < ApplicationController
   
   end
 
-  # PUT /words/1
-  # PUT /words/1.json
+
   def find
     @word = Word.where(:polskie => params[:word]).first
   end

@@ -1,14 +1,7 @@
 Addictionary::Application.routes.draw do
   resources :words
- 
-  get "search/index"
-  get "search/live_search"
-  get "words/:id/show"
-  get "words/:id/edit"
- # get "/find" => "words#find"
-get "/find" => "words#index"
-
-  root :to =>'words#index'
+  get "/find" => "words#find"
+  root :to =>'words#find'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
