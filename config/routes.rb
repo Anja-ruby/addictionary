@@ -1,4 +1,4 @@
-Slapa::Application.routes.draw do
+Addictionary::Application.routes.draw do
   resources :words
  
   get "search/index"
