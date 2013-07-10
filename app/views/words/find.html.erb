@@ -4,50 +4,37 @@
   <div id="int-site"></div>
 </div>
 
-<h1 style=" float:left"><%= image_tag 'mic2.png' %></h1>
+<h1 style="float:left"><%= image_tag 'mic2.png' %></h1>
 
-<div style="position: absolute;  left:1050px; top: 0px; ">
+<div style="position: absolute; left:1050px; top: 0px; ">
   <%= link_to image_tag('addictionary3.png'), root_path %>
 </div>
 
 <form class="search" accept-charset="UTF-8" action="find" method="get" >
-    <input id="polskie" name="word" type="text" class="whitetrans" placeholder="Type a word or phrase">
-    <input class='btn'  type='submit'  value='Translate' style="background-color: #FF8000; font:Arial; margin-left:700px; font-size: 20px; color: white; border: grey;">
-
+  <input id="polskie" name="word" type="text" class="whitetrans" placeholder="Type a word or phrase">
+  <input class='btn'  type='submit' value='Translate'>
 </form>
 
 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
- 
 <script>
+  $(function() {
+    $.getJSON("/words", function(data) {
+      var tags = $.map(data, function(word){
+        return word["polskie"];
+      });
 
-$(function() {
-
-  $.getJSON("/words", function(data) {
-
-    var tags = $.map(data, function(word){
-
-      return word["polskie"];
-
+      $("#polskie").autocomplete({
+        source: tags
+      });
     });
-
-    $("#polskie").autocomplete({
-
-      source: tags
-
-    });
-
   });
-
-});
-
 </script>
 
-<h2 style="width=320px; font:Arial; margin-left:700px; font-size: 20px; color: white; border: grey;">
+<h2 class="translation">
   <% if @word.nil?  %>
     <div class='look_up'>nie znaleziono </div>
   <% else %>
@@ -55,3 +42,5 @@ $(function() {
     <p><span class="angielskie"><%= @word.angielskie %></span></p>
   <% end %>
 </h2>
+
+<%= link_to "Word list", words_path, :class => "words-link" %>
