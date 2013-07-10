@@ -2,78 +2,32 @@
 
 <div id="int-site-container">
 
-<div id="int-site">
+  <div id="int-site"></div>
 
 </div>
+      <h1 style=" float:left"><%= image_tag 'mic2.png' %></h1>
 
-</div>
-
-<body type="text/css" media="screen" style=" background-image: linear-gradient(left bottom, rgb(0,0,0) 42%, rgb(247,244,245) 74%);
-
-background-image: -o-linear-gradient(left bottom, rgb(0,0,0) 42%, rgb(247,244,245) 74%);
-
-background-image: -moz-linear-gradient(left bottom, rgb(0,0,0) 42%, rgb(247,244,245) 74%);
-
-background-image: -webkit-linear-gradient(left bottom, rgb(0,0,0) 42%, rgb(247,244,245) 74%);
-
-background-image: -ms-linear-gradient(left bottom, rgb(0,0,0) 42%, rgb(247,244,245) 74%);
-
- 
-
-background-image: -webkit-gradient(
-
-  linear,
-
-  left bottom,
-
-  right top,
-
-  color-stop(0.42, rgb(0,0,0)),
-
-  color-stop(0.74, rgb(247,244,245)));">
-
- 
-
- 
-
-        
-
-        <h1 style=" float:left"><%= image_tag 'mic2.png' %></h1>
-
- 
-
-       <div style="position: absolute;  left:1050px; top: 0px; "><%= image_tag 'addictionary3.png' %></div>
-
- 
+ <div style="position: absolute;  left:1050px; top: 0px; "><%= image_tag 'addictionary3.png' %></div>
 
 <form accept-charset="UTF-8" action="find" method="get" >
 
-<input id="polskie" name="word" type="text" onfocus="this.value=(this.value=='Type a word or phrase') ? '' : this.value;" class="whitetrans" style= "background-color:whitetrans; text-color:white; opacity:0.2; filter:alpha(opacity=20); list-style: none outside none; font-size:30px; padding:15px; width:320px; margin-left:700px" onfocus="this.value=(this.value=='Type a word or phrase') ? '' : this.value;" onblur="this.value=(this.value=='') ? 'Type a word or phrase' : this.value;">
+    <input id="polskie" name="word" type="text" onfocus="this.value=(this.value=='Type a word or phrase') ? '' : this.value;" class="whitetrans" style= "background-color:whitetrans; text-color:white; opacity:0.2; filter:alpha(opacity=20); list-style: none outside none; font-size:30px; padding:15px; width:320px; margin-left:700px" onfocus="this.value=(this.value=='Type a word or phrase') ? '' : this.value;" onblur="this.value=(this.value=='') ? 'Type a word or phrase' : this.value;">
 
-                            
+<br></br>
 
-        
+<form>
 
-              <br></br>
-
-              <form>
-
-               <input class='btn'  type='submit'  value='Translate' style="background-color: #FF8000; font:Arial; margin-left:700px; font-size: 20px; color: white; border: grey;">
+    <input class='btn'  type='submit'  value='Translate' style="background-color: #FF8000; font:Arial; margin-left:700px; font-size: 20px; color: white; border: grey;">
 
 </form>
 
-    
-
 <h2 style="width=320px; font:Arial; margin-left:700px; font-size: 20px; color: white; border: grey;">
-
- 
 
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
  
-
 <script>
 
 $(function() {
@@ -97,60 +51,29 @@ $(function() {
 });
 
 </script>
-
-   
-
+  
   <% if @word.nil?  %>
-
            <td style="font-size: 30px font:EssenceSans"> </td>
+           <div class='look_up' style="font-size: 20px font-color:white">nie znaleziono </div>
+  <% else %>   
 
-  <div class='look_up' style="font-size: 20px font-color:white">nie znaleziono </div>
+          <% if @word %>
+              <div class='look_up' style="font-size: 20px font:EssenceSans font-color:white">tłumaczenie dla:  " <%= @word.polskie %>"</div>
 
-       <% else %>   
+              <br></br>
+              <td><div class='look_up' style="font-size: 20px font: avenir"><%= @word.angielskie %></div></td> 
+          <% else %> 
+               <td style="font-size: 30px">not found</td>
+          <% end %>
+  <% end %>
 
-         <% if @word %>
+ 
+</h2>
 
-            <div class='look_up' style="font-size: 20px font:EssenceSans font-color:white">tłumaczenie dla:  " <%= @word.polskie %>"</div>
 
 <br></br>
-
- 
-
-            <td><div class='look_up' style="font-size: 20px font: avenir"><%= @word.angielskie %></div></td> 
-
-         <% else %> 
-
-            <td style="font-size: 30px">not found</td>
-
-       <% end %>
-
-<% end %>
-
- 
-
-     </h2>
-
- 
-
- 
-
 <br></br>
-
 <br></br>
-
 <br></br>
-
- 
-
- 
-
-
-
-
-
-
-
- 
-
-
-
+<br></br>
+<br></br>
