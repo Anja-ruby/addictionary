@@ -1,4 +1,4 @@
-### Addictionary
+### Dictionary
 
 Dictionary Rails application
 
